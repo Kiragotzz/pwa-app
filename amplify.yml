@@ -1,0 +1,15 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Nenhum comando de pré-build necessário para HTML, CSS e JS simples"
+    build:
+      commands:
+        - echo "Nenhum comando de build necessário para HTML, CSS e JS simples"
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths: []
