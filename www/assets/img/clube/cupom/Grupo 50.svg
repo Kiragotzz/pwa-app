@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+  <g id="Grupo_50" data-name="Grupo 50" transform="translate(-837 -62)">
+    <g id="Componente_7_1" data-name="Componente 7 – 1" transform="translate(837 62)">
+      <circle id="Elipse_4" data-name="Elipse 4" cx="26" cy="26" r="26" fill="#00beff"/>
+    </g>
+    <g id="share" transform="translate(848 73)">
+      <path id="share-2" data-name="share" d="M28,13a5,5,0,1,0-4.962-4.382L11.471,14.4a5,5,0,1,0,0,7.2l11.567,5.784A5,5,0,1,0,28,23a4.984,4.984,0,0,0-3.471,1.4L12.962,18.618a5.068,5.068,0,0,0,0-1.235L24.529,11.6A4.983,4.983,0,0,0,28,13Z" transform="translate(-3 -3)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
