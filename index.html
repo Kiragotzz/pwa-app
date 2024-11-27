@@ -1,50 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu PWA</title>
-    <link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.json">
-</head>
-<body>
-    <h1>Bem-vindo ao Meu PWA</h1>
-    <h1>Teste</h1>
-    <button id="installButton" style="display: none;">Instalar App</button>
-    <div id="iosInstallBanner" style="display: none;">
-        <p>Para adicionar este app à tela inicial, toque no ícone de compartilhamento e selecione "Adicionar à Tela de Início".</p>
-    </div>
-    <script src="app.js"></script>
-    <script>
-        let deferredPrompt;
-    
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            showInstallPromotion();
-        });
-    
-        function showInstallPromotion() {
-            const installButton = document.getElementById('installButton');
-            installButton.style.display = 'block';
-    
-            installButton.addEventListener('click', () => {
-                installButton.style.display = 'none';
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('Usuário aceitou a instalação');
-                    } else {
-                        console.log('Usuário rejeitou a instalação');
-                    }
-                    deferredPrompt = null;
-                });
-            });
-        }
-    
-        if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
-            document.getElementById('iosInstallBanner').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+<html lang="pt-BR">
 
+<head>
+  <meta charset="utf-8" />
+  <title>Barbosa Supermercados</title>
+
+  <base href="/" />
+
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/barbosa.png" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.e12d2f24bf255bf9af49.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <app-root></app-root>
+  <script src="runtime-es2015.2a53ee3165112dd16f6a.js" type="module"></script>
+  <script src="runtime-es5.2a53ee3165112dd16f6a.js" nomodule defer></script>
+  <script src="polyfills-es5.5c3b68c48559941b1b8f.js" nomodule defer></script>
+  <script src="polyfills-es2015.545b3cc351fe3648ed7e.js" type="module"></script>
+  <script src="main-es2015.1aebb85cedb3749ba9bd.js" type="module"></script>
+  <script src="main-es5.1aebb85cedb3749ba9bd.js" nomodule defer></script>
+  <script src="app.js"></script>
+  <script>
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      showInstallPromotion();
+    });
+
+    function showInstallPromotion() {
+      const installButton = document.getElementById('installButton');
+      installButton.style.display = 'block';
+
+      installButton.addEventListener('click', () => {
+        installButton.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Usuário aceitou a instalação');
+          } else {
+            console.log('Usuário rejeitou a instalação');
+          }
+          deferredPrompt = null;
+        });
+      });
+    }
+
+    if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+      document.getElementById('iosInstallBanner').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
