@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu PWA</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.json">
 </head>
 <body>
     <h1>Bem-vindo ao Meu PWA</h1>
@@ -14,37 +14,37 @@
         <p>Para adicionar este app à tela inicial, toque no ícone de compartilhamento e selecione "Adicionar à Tela de Início".</p>
     </div>
     <script src="app.js"></script>
+    <script>
+        let deferredPrompt;
+    
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            showInstallPromotion();
+        });
+    
+        function showInstallPromotion() {
+            const installButton = document.getElementById('installButton');
+            installButton.style.display = 'block';
+    
+            installButton.addEventListener('click', () => {
+                installButton.style.display = 'none';
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuário aceitou a instalação');
+                    } else {
+                        console.log('Usuário rejeitou a instalação');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        }
+    
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+            document.getElementById('iosInstallBanner').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
 
-<script>
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        showInstallPromotion();
-    });
-
-    function showInstallPromotion() {
-        const installButton = document.getElementById('installButton');
-        installButton.style.display = 'block';
-
-        installButton.addEventListener('click', () => {
-            installButton.style.display = 'none';
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('Usuário aceitou a instalação');
-                } else {
-                    console.log('Usuário rejeitou a instalação');
-                }
-                deferredPrompt = null;
-            });
-        });
-    }
-
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
-        document.getElementById('iosInstallBanner').style.display = 'block';
-    }
-</script>
